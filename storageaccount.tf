@@ -12,7 +12,7 @@ resource "random_string" "storage_account_name" {
 resource "azurerm_storage_account" "example" {
   name                     = "st${random_string.storage_account_name.result}"
   resource_group_name      = "testlab"
-  location                 = azurerm_resource_group.example.location
+  location                 = "East US"
   account_tier             = "Standard"
   account_replication_type = "LRS"
   
