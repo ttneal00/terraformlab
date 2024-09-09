@@ -20,12 +20,7 @@ variable "backend" {
 }
 
 terraform {
-  backend "azurerm" {
-    resource_group_name   = var.backend.resourceGroupName
-    storage_account_name  = var.backend.storageAccountName
-    container_name        = var.backend.containerName
-    key                   = var.backend.stateFileName
-  }
+  backend "azurerm" {}
 }
 
 resource "azurerm_storage_account" "example" {
