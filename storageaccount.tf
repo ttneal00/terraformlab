@@ -19,9 +19,9 @@ resource "random_string" "storage_account_name" {
   
 # }
 
-# terraform {
-#   backend "azurerm" {}
-# }
+terraform {
+  backend "azurerm" {}
+}
 
 resource "azurerm_storage_account" "example" {
   name                     = "st${random_string.storage_account_name.result}"
