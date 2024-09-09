@@ -26,7 +26,11 @@ jobs:
           creds: ${{ secrets.AZURE_CREDS_PERSONAL }}
 
       - name: 'Terraform Init'
-        run: terraform init
+        run: |
+          terraform init -backend-config="storage_account_name=st2wbd00d3o" \
+                         -backend-config="container_name=terraformstate" \
+                         -backend-config="key=terraform-core.tfstate" \
+                         -backend-config="access_key=${{ secrets.AZURE_STORAGE_KEY }}"
 
       - name: 'Terraform Plan'
         run: terraform plan
