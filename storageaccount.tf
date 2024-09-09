@@ -48,6 +48,20 @@ resource "azurerm_storage_account" "example2" {
   }
 }
 
+
+resource "azurerm_storage_account" "example3" {
+  name                     = "st3${random_string.storage_account_name.result}"
+  resource_group_name      = "testlab"
+  location                 = "East US"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  is_hns_enabled = true
+  
+  tags = {
+    environment = "test"
+  }
+}
+
 output "storage_account_name" {
   value = azurerm_storage_account.example.name
 }
