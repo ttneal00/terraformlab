@@ -30,6 +30,7 @@ jobs:
           terraform init -backend-config="storage_account_name=st2wbd00d3o" \
                          -backend-config="container_name=terraformstate" \
                          -backend-config="key=terraform-core.tfstate" \
+                         -backend-config="resource_group_name=testlab" \
                          -backend-config="access_key=${{ secrets.AZURE_STORAGE_KEY }}"
 
       - name: 'Terraform Plan'
