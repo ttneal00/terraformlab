@@ -9,7 +9,7 @@ resource "random_string" "storage_account_name" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "rg-storage-account-test"
+  name     = "testlab"
   location = "East US"
 }
 
