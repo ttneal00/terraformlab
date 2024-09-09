@@ -1,5 +1,6 @@
 provider "azurerm" {
   features {}
+  subscription_id = "b2631b33-28d9-4f16-83ff-dcffceb9bd41"
 }
 
 resource "random_string" "storage_account_name" {
