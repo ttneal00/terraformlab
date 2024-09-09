@@ -9,6 +9,25 @@ resource "random_string" "storage_account_name" {
   special = false
 }
 
+variable "backend" {
+  type = object({
+    resourceGroupName = string
+    storageAccountName = string
+    containerName = string
+    stateFileName = string
+  })
+  
+}
+
+terraform {
+  backend "azurerm" {
+    resource_group_name   = backend.resourceGroupName
+    storage_account_name  = backend.storageAccountName
+    container_name        = backend.containerName
+    key                   = backend.stateFileName
+  }
+}
+
 resource "azurerm_storage_account" "example" {
   name                     = "st${random_string.storage_account_name.result}"
   resource_group_name      = "testlab"
