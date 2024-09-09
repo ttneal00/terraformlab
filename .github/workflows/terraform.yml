@@ -32,6 +32,9 @@ jobs:
                          -backend-config="key=terraform-core.tfstate" \
                          -backend-config="resource_group_name=testlab" \
                          -backend-config="access_key=${{ secrets.AZURE_STORAGE_KEY }}"
+                         
+      - name: 'Terraform Validate'
+        run: terraform validate
 
       - name: 'Terraform Plan'
         run: terraform plan
